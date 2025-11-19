@@ -59,7 +59,7 @@ export default function Home() {
         <div className="flex flex-col gap-[50px] max-w-[517px] w-full mx-auto ">
           <div className="">
             <h1 className="font-bold leading-[140%] max-md:text-center text-[3rem] md:text-[60px]">Coming Soon</h1>
-            <p className="text-[1rem] max-md:text-center md:text-[21px] font-normal leading-[140%]">Be the first to know when the biggest online marketplace launches.</p>
+            <p className="text-[1rem] max-md:text-center md:text-[21px] font-normal leading-[140%]">Be the first to know when the biggest online student marketplace launches.</p>
           </div>
           <div className="flex justify-between items-center ">
           {countDown.map((item,index)=>(
