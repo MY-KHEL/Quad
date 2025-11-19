@@ -1,65 +1,86 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [days, setDays] = useState<number>(0);
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
+
+  const countDown = [
+    {title : 'days',value:days},
+    {title : 'hours',value:hours},
+    {title : 'minutes',value:minutes},
+    {title : 'seconds',value:seconds},
+  ]
+  useEffect(() => {
+    const targetDate = new Date("2025-11-27T23:59:59");
+    const interval = setInterval(() => {
+      const currentDate = new Date();
+      // console.log(currentDate);
+
+      const timeDifference = targetDate.getTime() - currentDate.getTime();
+      // console.log(timeDifference);
+
+      const day = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+      const hour = Math.floor(
+        (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+
+      const minute = Math.floor(
+        (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      const second = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      setDays(day);
+      setHours(hour);
+      setMinutes(minute);
+      setSeconds(second);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <section className="text-white  h-screen ">
+      <div className="pt-[50px]">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
+          src={"/pngs/logo.png"}
+          alt="logo"
           width={100}
-          height={20}
-          priority
+          height={42}
+          className="mx-auto"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+      </div>
+      <div className="px-6 lg:px-[62px] flex max-md:flex-col gap-[15px] h-[calc(100dvh-95px)] pt-[5rem] md:items-center ">
+        <div className="flex flex-col gap-[50px] max-w-[517px] w-full ">
+          <div className="">
+            <h1 className="font-bold leading-[140%] max-md:text-center text-[3rem] md:text-[60px]">Coming Soon</h1>
+            <p className="text-[1rem] max-md:text-center md:text-[21px] font-normal leading-[140%]">Be the first to know when the biggest online marketplace launches.</p>
+          </div>
+          <div className="flex justify-between items-center ">
+          {countDown.map((item,index)=>(
+            <div className="flex flex-col " key={index}>
+          <p className="text-[3rem] font-bold md:text-[3.75rem]  leading-[140%] text-white">
+           {item.value} {index !== countDown.length-1 ? ':' : ''}
           </p>
+          <p className="text-[1rem] text-normal md:text-[21px] capitalize ">{item.value <= 1 ? item.title.slice(0, -1) : item.title}</p>
+          </div>
+          
+          ))}
+          </div>
+
+          <Link href='https://chat.whatsapp.com/D9O1WXHLQEiBaGoyFXU6Ov' target="_blank" className="w-full py-4 text-center px-8 bg-[#48B7DD] rounded-lg">
+              Join the Quad Squad
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="relative w-full  h-full ">
+          <Image src='/pngs/image.jpg' alt="hero-section" fill className="object-cover"/>
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
   );
 }
