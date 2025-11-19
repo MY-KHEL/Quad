@@ -55,8 +55,8 @@ export default function Home() {
           className="mx-auto"
         />
       </div>
-      <div className="px-6 lg:px-[62px] flex max-md:flex-col gap-[15px] h-[calc(100dvh-95px)] pt-[5rem] md:items-center ">
-        <div className="flex flex-col gap-[50px] max-w-[517px] w-full ">
+      <div className="px-6 lg:px-[62px] flex max-lg:flex-col gap-[32px] h-[calc(100dvh-95px)] pt-[5rem] md:items-center ">
+        <div className="flex flex-col gap-[50px] max-w-[517px] w-full mx-auto ">
           <div className="">
             <h1 className="font-bold leading-[140%] max-md:text-center text-[3rem] md:text-[60px]">Coming Soon</h1>
             <p className="text-[1rem] max-md:text-center md:text-[21px] font-normal leading-[140%]">Be the first to know when the biggest online marketplace launches.</p>
@@ -77,7 +77,7 @@ export default function Home() {
               Join the Quad Squad
           </Link>
         </div>
-        <div className="relative w-full  h-full ">
+        <div className="relative w-full min-h-[600px]  h-full ">
           <Image src='/pngs/image.jpg' alt="hero-section" fill className="object-cover"/>
         </div>
       </div>
