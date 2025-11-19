@@ -73,7 +73,7 @@ export default function Home() {
           ))}
           </div>
 
-          <Link href='https://chat.whatsapp.com/D9O1WXHLQEiBaGoyFXU6Ov' target="_blank" className="w-full py-4 text-center px-8 bg-[#48B7DD] rounded-lg">
+          <Link href='https://chat.whatsapp.com/DJhnzr6I2By5TKcNNcoXYT' target="_blank" className="w-full py-4 text-center px-8 bg-[#48B7DD] rounded-lg">
               Join the Quad Squad
           </Link>
         </div>
