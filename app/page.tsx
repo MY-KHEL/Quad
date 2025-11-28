@@ -62,7 +62,7 @@ export default function Home() {
             <p className="text-[1rem] max-md:text-center md:text-[21px] font-normal leading-[140%]">Be the first to know when the biggest online student marketplace launches.</p>
           </div>
           <div className="flex justify-between items-center ">
-          {countDown.map((item,index)=>(
+          {/* {countDown.map((item,index)=>(
             <div className="flex flex-col " key={index}>
           <p className="text-[3rem] font-bold md:text-[3.75rem]  leading-[140%] text-white">
            {item.value} {index !== countDown.length-1 ? ':' : ''}
@@ -70,7 +70,7 @@ export default function Home() {
           <p className="text-[1rem] text-normal md:text-[21px] capitalize ">{item.value <= 1 ? item.title.slice(0, -1) : item.title}</p>
           </div>
           
-          ))}
+          ))} */}
           </div>
 
           <Link href='https://chat.whatsapp.com/DJhnzr6I2By5TKcNNcoXYT' target="_blank" className="w-full py-4 text-center px-8 bg-[#48B7DD] rounded-lg">
